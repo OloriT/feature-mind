@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "cypress run",
     "pretest": "del /Q .\\cypress\\reports\\*.json",
     "cypress-test": "cypress run",
     "posttest": "npm run merge-reports && npm run generate-htmlreport",
