@@ -8,7 +8,9 @@
     "cypress-test": "cypress run",
     "posttest": "npm run merge-reports && npm run generate-htmlreport",
     "merge-reports": "mochawesome-merge ./cypress/reports/*.json > ./report1.json",
-    "generate-htmlreport": "marge ./report.json --reportDir ./cypress\reports"
+    "generate-htmlreport": "marge ./report.json --reportDir ./cypress\reports",
+    "cypress:open": "cypress open --config-file cypress.config.js",
+    "cypress:run": "cypress run --config-file cypress.config.js"
   },
   "keywords": [],
   "author": "",
