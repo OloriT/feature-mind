@@ -18,14 +18,3 @@ jobs:
         Cypress Test: true
     - name: Run Cypress tests
       run: npx cypress run --config-file cypress.config.js
-=======
-      - name: Checkout
-        uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          build: npm run cypress-test
-          start: npm start
->>>>>>> 3ae0a23717460b289d837d5c5bb71f379d1a0391
