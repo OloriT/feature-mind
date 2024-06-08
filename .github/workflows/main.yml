@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 name: CI
+=======
+name: Cypress Tests
+>>>>>>> 476c99ec64f0c48412d8b7d62b5ccf5d5d789aca
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  test:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
+<<<<<<< HEAD
     - uses: actions/checkout@v2
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -17,3 +22,14 @@ jobs:
         CI: true
     - name: Run Cypress tests
       run: npx cypress run --config-file cypress.config.js
+=======
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run start
+          # start: npm start
+>>>>>>> 476c99ec64f0c48412d8b7d62b5ccf5d5d789aca
