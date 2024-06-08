@@ -1,4 +1,4 @@
-name: Cypress Test
+name: CI
 
 on: [push, pull_request]
 
@@ -6,7 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
     - uses: actions/checkout@v2
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -15,6 +14,6 @@ jobs:
     - run: npm install
     - run: npm start & # Start the application
       env:
-        Cypress Test: true
+        CI: true
     - name: Run Cypress tests
       run: npx cypress run --config-file cypress.config.js

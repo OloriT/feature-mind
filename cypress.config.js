@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
 const { downloadFile } = require('cypress-downloadfile/lib/addPlugin')
 
-module.exports = {
+module.exports = defineConfig({
   e2e: {
 
     watchForFileChanges: false,
@@ -26,4 +26,4 @@ module.exports = {
       on('task', { downloadFile })
     },
   },
-};
+});
