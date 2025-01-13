@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-13T19:07:26.749Z",
+    "end": "2025-01-13T19:08:04.708Z",
+    "duration": 37959,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa300d93-2d5d-4660-8d4a-bab5c5cd1cd1",
+      "title": "",
+      "fullFile": "cypress/e2e/addproducttocart.cy.js",
+      "file": "cypress/e2e/addproducttocart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "32e17461-d9b0-4285-b0e4-bac268c1394b",
+          "title": "Launch Website Address",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add To Cart",
+              "fullTitle": "Launch Website Address Add To Cart",
+              "timedOut": null,
+              "duration": 35697,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//1. The user visits the address\ncy.visit('https://www.automationexercise.com');\n//1a. User verifies they went to the right address\ncy.get('.active > :nth-child(1) > h1', {\n  timeout: 5000\n}).should('contain', 'AutomationExercise');\n// cy.wait(3000)\n//2. The user clicks on the “Cart” icon from the header.\ncy.contains('Cart').click({\n  force: true\n});\n//2a. Verify that the shopping cart is empty at the moment\ncy.get('b').should('contain', 'Cart is empty!');\n//3. The user clicks on the Product on the header\ncy.contains('Products').click({\n  force: true\n});\n//3a. click on the T-shirt option under the men option\ncy.get(':nth-child(2) > .panel-heading > .panel-title > a').click({\n  force: true\n});\ncy.wait(3000);\n//Click T-shirt\ncy.get('#Men > .panel-body > ul > :nth-child(1) > a').click({\n  force: true\n});\ncy.wait(3000);\n//3b. Add 3 Random Products to the cart\n//Add Product 1\ncy.get(':nth-child(3) > .product-image-wrapper > .single-products > .productinfo > .btn').click({\n  force: true\n});\n//Confirm the 1st product has been added to cart\ncy.get('.modal-body > :nth-child(1)').should('contain', 'Your product has been added to cart.');\n//click on continue shopping to add product 2\ncy.get('.modal-footer > .btn').click({\n  force: true\n});\ncy.wait(3000);\n//Add Product 2\ncy.get(':nth-child(4) > .product-image-wrapper > .single-products > .productinfo > .btn').click({\n  force: true\n});\n//Confirm the 2nd product has been added to cart\ncy.get('.modal-body > :nth-child(1)').should('contain', 'Your product has been added to cart.');\n//click on continue shopping to add product 3\ncy.get('.modal-footer > .btn').click({\n  force: true\n});\ncy.wait(3000);\n//Add Product 3\ncy.get(':nth-child(5) > .product-image-wrapper > .single-products > .productinfo > .btn').click({\n  force: true\n});\n//Confirm the 3rd product has been added to cart\ncy.get('.modal-body > :nth-child(1)').should('contain', 'Your product has been added to cart.');\ncy.wait(3000);\n//3c. Click View Cart button in the pop-up\ncy.get('u').click({\n  force: true\n});\n//3d. confirm that click on View Cart redirects the user to the cart page\ncy.url().should('eq', 'https://www.automationexercise.com/view_cart');\n//3e. verify there are items in the cart and they all have amounts\ncy.get('.description').should('be.visible');\ncy.get('.price').should('be.visible');\n//confirm the agent wallet balance is visible on the dashboard\nconst product1 = '#product-2 > .cart_description > h4 > a';\ncy.get(product1).should('be.visible');\nconst price1 = '#product-2 > .cart_price > p';\ncy.get(price1).should('be.visible');\nif (cy.get('.description').length === 0) {\n  throw new Error('No product 1 in Cart');\n} else {\n  // Log the text content of the element\n  cy.get('.description').invoke('text').then(text => {\n    cy.log('Product Name:' + ' ' + product1);\n    cy.log('Price' + ' ' + price1);\n  });\n}",
+              "err": {},
+              "uuid": "8947c94d-7657-4e91-b542-c13c008f14e5",
+              "parentUUID": "32e17461-d9b0-4285-b0e4-bac268c1394b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8947c94d-7657-4e91-b542-c13c008f14e5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 35697,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports",
+        "chromeWebSecurity": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}
